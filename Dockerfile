@@ -8,7 +8,6 @@ RUN \
   rm -fr /app/* && \
   apt-get update && apt-get install -yqq wget unzip git && \
   rm -rf /var/lib/apt/lists/* && \
-  git clone https://github.com/jax777/BlueLotus_XSSReceiver.git  && \
   rm -rf app/*
 COPY ./BlueLotus_XSSReceiver/ /app/ 
 RUN \  
