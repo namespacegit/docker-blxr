@@ -9,7 +9,7 @@ RUN \
   apt-get update && apt-get install -yqq wget unzip git && \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf app/*
-COPY ./BlueLotus_XSSReceiver/ /app/ 
+# COPY ./BlueLotus_XSSReceiver/ /app/ 
 RUN \  
   chmod -R a+rw /app && \
   rm /app/myjs/.htaccess && \
