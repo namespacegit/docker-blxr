@@ -1,18 +1,6 @@
-FROM tutum/lamp:latest
-MAINTAINER Nikolay Golub <nikolay.v.golub@gmail.com>
-
-ENV DEBIAN_FRONTEND noninteractive
-
-# Preparation
-RUN \
-  rm -fr /app/* && \
-  apt-get update && apt-get install -yqq wget unzip git && \
-  rm -rf /var/lib/apt/lists/* && \
-  rm -rf app/*
-# COPY ./BlueLotus_XSSReceiver/ /app/ 
-RUN \  
-  chmod -R a+rw /app && \
-  echo 'session.save_path = "/tmp"' >> /etc/php5/apache2/php.ini 
-
-EXPOSE 80 3306
-CMD ["/run.sh"]
+FROM php:5.6-apache
+MAINTAINER jax777 "jax777@qq.com"
+ADD BlueLotus_XSSReceiver /var/www/html/
+chmod -R a+rw /var/www/html/
+EXPOSE 80
+CMD ["apache2-foreground"]
